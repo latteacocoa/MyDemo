@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello C#");
+            Console.WriteLine("Hello C#" + (args.Length > 0 ? args[0] : ""));
 
 
             // マスタ側ソース
