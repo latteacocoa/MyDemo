@@ -13,6 +13,9 @@ namespace ConsoleApp1
             Console.WriteLine("Hello C#");
 
 
+            // マスタ側ソース
+            Console.ReadKey(true);
+
             return;
         }
     }
