@@ -19,23 +19,23 @@ public class ABC088B {
 	 */
 	public static void main(String[] args) {
 		// 標準入力取得用オブジェクト **********
-		var wSc = new Scanner(System.in);
+		Scanner wScan = new Scanner(System.in);
 
 		// 標準入力より値を取得 **********
-		var wInCardNum = wSc.nextInt();
-		var wInCards = new ArrayList<Integer>();
+		int wInCardNum = wScan.nextInt();
+		ArrayList<Integer> wInCards = new ArrayList<Integer>();
 		for (int wIndex = 0; wIndex < wInCardNum; wIndex++) {
-			wInCards.add(wSc.nextInt());
+			wInCards.add(wScan.nextInt());
 		}
-		wSc.close();
+		wScan.close();
 
 		// 出力情報を生成し出力 **********
-		var wSumCardNumOfAlice = 0;
-		var wSumCardNumOfBob = 0;
-		var wIsAlice = true;
+		int wSumCardNumOfAlice = 0;
+		int wSumCardNumOfBob = 0;
+		boolean wIsAlice = true;
 
+		// カードを降順に並び替え，Aliceから先に交互にカードを取得したときの総和を求める
 		Collections.sort(wInCards, Comparator.reverseOrder());
-
 		for (Integer wCard : wInCards) {
 			if (wIsAlice) {
 				wSumCardNumOfAlice += wCard;
@@ -46,9 +46,6 @@ public class ABC088B {
 			}
 		}
 
-
 		System.out.println(wSumCardNumOfAlice - wSumCardNumOfBob);
-
-		return;
 	}
 }

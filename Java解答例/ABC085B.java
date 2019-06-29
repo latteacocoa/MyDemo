@@ -19,22 +19,23 @@ public class ABC085B {
 	 */
 	public static void main(String[] args) {
 		// 標準入力取得用オブジェクト **********
-		var wSc = new Scanner(System.in);
+		Scanner wScan = new Scanner(System.in);
 
 		// 標準入力より値を取得 **********
-		var wInMochiNum = wSc.nextInt();
-		var wInMochis = new ArrayList<Integer>();
+		int wInMochiNum = wScan.nextInt();
+		ArrayList<Integer> wInMochis = new ArrayList<Integer>();
 		for (int wIndex = 0; wIndex < wInMochiNum; wIndex++) {
-			wInMochis.add(wSc.nextInt());
+			wInMochis.add(wScan.nextInt());
 		}
-		wSc.close();
+		wScan.close();
 
 		// 出力情報を生成し出力 **********
-		var wMochiDansu = 0;
+		int wMochiDansu = 0;
 		Integer wMochiLastTime = Integer.MAX_VALUE;
 
+		// 鏡餅の段数を求める
+		// 入力された餅情報を降順に並び替え，前後の値の大小を判定する
 		Collections.sort(wInMochis, Comparator.reverseOrder());
-
 		for (Integer wMochi : wInMochis) {
 			if (wMochi < wMochiLastTime) {
 				wMochiDansu++;
@@ -43,7 +44,5 @@ public class ABC085B {
 		}
 
 		System.out.println(wMochiDansu);
-
-		return;
 	}
 }

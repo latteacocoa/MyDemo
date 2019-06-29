@@ -17,22 +17,20 @@ public class ABC085B_2 {
 	 */
 	public static void main(String[] args) {
 		// 標準入力取得用オブジェクト **********
-		var wSc = new Scanner(System.in);
+		Scanner wScan = new Scanner(System.in);
 
 		// 標準入力より値を取得 **********
-		var wInMochiNum = wSc.nextInt();
-		var wInMochis = new ArrayList<Integer>();
+		int wInMochiNum = wScan.nextInt();
+		ArrayList<Integer> wInMochis = new ArrayList<Integer>();
 		for (int wIndex = 0; wIndex < wInMochiNum; wIndex++) {
-			wInMochis.add(wSc.nextInt());
+			wInMochis.add(wScan.nextInt());
 		}
-		wSc.close();
+		wScan.close();
 
 		// 出力情報を生成し出力 **********
-		// 重複する数値を除き、その数が段数となる
-		var wMochiDansu = wInMochis.stream().distinct().count();
+		// 重複する数値を除き，その数が段数となる
+		long wMochiDansu = wInMochis.stream().distinct().count();
 
 		System.out.println(wMochiDansu);
-
-		return;
 	}
 }

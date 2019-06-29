@@ -16,19 +16,20 @@ public class ABC083B_2 {
 	 */
 	public static void main(String[] args) {
 		// 標準入力取得用オブジェクト **********
-		var wSc = new Scanner(System.in);
+		Scanner wScan = new Scanner(System.in);
 
 		// 標準入力より値を取得 **********
-		var wInEndIntNum = wSc.nextInt();
-		var wInBetweenStart = wSc.nextInt();
-		var wInBetweenEnd = wSc.nextInt();
-		wSc.close();
+		var wInEndIntNum = wScan.nextInt();		// 検査対象値
+		var wInBetweenStart = wScan.nextInt();	// 検査範囲（自）
+		var wInBetweenEnd = wScan.nextInt();		// 検査範囲（至）
+		wScan.close();
 
 		// 出力情報を生成し出力 **********
-		var wOutSumNum = 0;
+		int wOutSumNum = 0;
 
+		// 検査対象値が検査範囲であるものの総和を求める
 		for (Integer wIntNum = 1; wIntNum <= wInEndIntNum; wIntNum++) {
-			var wSumBuffer = 0;
+			int wSumBuffer = 0;
 
 			// 数字の文字コードが連続していることを利用した方法
 			for (char wCharNum : wIntNum.toString().toCharArray()) {
@@ -40,8 +41,6 @@ public class ABC083B_2 {
 		}
 
 		System.out.println(wOutSumNum);
-
-		return;
 	}
 
 }

@@ -16,22 +16,22 @@ public class ABC085C_2 {
 	 */
 	public static void main(String[] args) {
 		// 標準入力取得用オブジェクト **********
-		var wSc = new Scanner(System.in);
+		Scanner wScan = new Scanner(System.in);
 
 		// 標準入力より値を取得 **********
-		var wInOsatuNum = wSc.nextInt();
-		var wInKingaku = wSc.nextInt();
-		wSc.close();
+		int wInOsatuNum = wScan.nextInt();
+		int wInKingaku = wScan.nextInt();
+		wScan.close();
 
 		// 出力情報を生成し出力 **********
-		// 金額を10000, 5000, 1000 の順に除算した時の商を求め、お札の枚数・合計金額 それぞれの条件をチェック
-		var wOutOsatuNum10000 = wInKingaku / 10000;
-		var wOutOsatuNum5000 = (wInKingaku - (10000 * wOutOsatuNum10000)) / 5000;
-		var wOutOsatuNum1000 = (wInKingaku - (10000 * wOutOsatuNum10000) - (5000 * wOutOsatuNum5000)) / 1000;
+		// 金額を10000, 5000, 1000 の順に除算した時の商を求め，お札の枚数・合計金額 それぞれの条件をチェック
+		int wOutOsatuNum10000 = wInKingaku / 10000;
+		int wOutOsatuNum5000 = (wInKingaku - (10000 * wOutOsatuNum10000)) / 5000;
+		int wOutOsatuNum1000 = (wInKingaku - (10000 * wOutOsatuNum10000) - (5000 * wOutOsatuNum5000)) / 1000;
 
 		if (wInOsatuNum < (wOutOsatuNum10000 + wOutOsatuNum5000 + wOutOsatuNum1000) ||
 			wInKingaku != (wOutOsatuNum10000 * 10000 + wOutOsatuNum5000 * 5000 + wOutOsatuNum1000 * 1000)) {
-			// 求めたお札の合計枚数が足りない 又は、金額が計算値と合わない場合
+			// 求めたお札の合計枚数が足りない 又は，金額が計算値と合わない場合
 
 			wOutOsatuNum10000 = -1;
 			wOutOsatuNum5000 = -1;
@@ -39,8 +39,6 @@ public class ABC085C_2 {
 		}
 
 		System.out.printf("%d %d %d%n", wOutOsatuNum10000, wOutOsatuNum5000, wOutOsatuNum1000);
-
-		return;
 	}
 
 

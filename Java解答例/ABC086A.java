@@ -16,21 +16,19 @@ public class ABC086A {
 	 */
 	public static void main(String[] args) {
 		// 標準入力取得用オブジェクト
-		var wSc = new Scanner(System.in);
+		Scanner wScan = new Scanner(System.in);
 
 		// 標準入力より値を取得
-		var wInValue01 = wSc.nextInt();
-		var wInValue02 = wSc.nextInt();
-		wSc.close();
+		int wInValue01 = wScan.nextInt();
+		int wInValue02 = wScan.nextInt();
+		wScan.close();
 
 		// 出力情報を生成し出力
-		var wOutValue01 = "Odd";
+		String wOutValue01 = "Odd";
 		if ((wInValue01 * wInValue02 % 2) == 0) {
 			wOutValue01 = "Even";
 		}
 
 		System.out.println(wOutValue01);
-
-		return;
 	}
 }
