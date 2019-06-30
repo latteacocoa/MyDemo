@@ -16,10 +16,10 @@ public class ABC081B {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// 標準入力取得用オブジェクト
+		// 標準入力取得用オブジェクト **********
 		Scanner wScan = new Scanner(System.in);
 
-		// 標準入力より値を取得
+		// 標準入力より値を取得 **********
 		int wInValue01 = wScan.nextInt();
 		ArrayList<Integer> wInValues = new ArrayList<Integer>();
 		for (int wIndex = 0; wIndex < wInValue01; wIndex++) {
@@ -27,7 +27,7 @@ public class ABC081B {
 		}
 		wScan.close();
 
-		// 出力情報を生成し出力
+		// 出力情報を生成し出力 **********
 		int wOutValue01 = 0;
 		boolean wIsAllEven = false;
 
