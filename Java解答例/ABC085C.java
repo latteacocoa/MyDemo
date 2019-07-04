@@ -24,46 +24,18 @@ public class ABC085C {
 		wScan.close();
 
 		// 出力情報を生成し出力 **********
-		int wOutOsatuNum10000 = 0;
-		int wOutOsatuNum5000 = 0;
-		int wOutOsatuNum1000 = 0;
-		int wBufferZangaku = wInKingaku;
+		for (int wIndex10000 = 0; wIndex10000 <= wInOsatuNum; wIndex10000++) {
+			for (int wIndex5000 = 0; wIndex5000 <= wInOsatuNum - wIndex10000; wIndex5000++) {
+				// 1000円札の枚数を求める
+				int wOsatuNum1000 = wInOsatuNum - wIndex10000 - wIndex5000;
 
-		// お札の枚数分，額の大きい方から減算し，各お札の枚数を計算する
-		for (int wIndex = 0; wIndex < wInOsatuNum; wIndex++) {
-
-			if (wBufferZangaku >= 10000) {
-				wOutOsatuNum10000++;
-				wBufferZangaku -= 10000;
-				continue;
-			}
-
-			if (wBufferZangaku >= 5000) {
-				wOutOsatuNum5000++;
-				wBufferZangaku -= 5000;
-				continue;
-			}
-
-			if (wBufferZangaku >= 1000) {
-				wOutOsatuNum1000++;
-				wBufferZangaku -= 1000;
-				continue;
-			}
-
-			if (wBufferZangaku == 0) {
-				break;
+				// 金額一致の判定
+				if ((wIndex10000 * 10000 + wIndex5000 * 5000 + wOsatuNum1000 * 1000) == wInKingaku) {
+					System.out.printf("%d %d %d", wIndex10000, wIndex5000, wOsatuNum1000);
+					return;
+				}
 			}
 		}
-
-		// 計算後の残額が残っている場合，嘘
-		if (wBufferZangaku > 0) {
-			wOutOsatuNum10000 = -1;
-			wOutOsatuNum5000 = -1;
-			wOutOsatuNum1000 = -1;
-		}
-		System.out.printf("%d %d %d%n", wOutOsatuNum10000, wOutOsatuNum5000, wOutOsatuNum1000);
+		System.out.println("-1 -1 -1");
 	}
-
-
-
 }
